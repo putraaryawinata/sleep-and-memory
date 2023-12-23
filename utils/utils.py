@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import pandas as pd
 import os
+import pickle
 
 class ReadDataset:
     def __init__(self, data_file, dir="./dataset"):
@@ -21,3 +22,24 @@ class PartialNumpyArray:
         if col:
             return self.np_array[:, :col]
             
+class ObjectManip:
+    def __init__(self, name, obj=None):
+        self.obj = obj
+        self.name = name
+    
+    def save_obj(self):
+        try:
+            with open(self.name, 'wb') as f:
+                pickle.dump(self.obj, f)
+            print(f"{self.name} is saved successfully!")
+        except:
+            raise Exception(f"Error occurs while saving {self.name}")
+    
+    def load_obj(self):
+        try:
+            with open(self.name, 'rb') as f:
+                self.obj = pickle.load(f)
+            print(f"{self.name} is loaded successfully!")
+            return self.obj
+        except:
+            raise Exception(f"Error occurs while loading {self.name}")

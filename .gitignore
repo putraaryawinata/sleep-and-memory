@@ -21,3 +21,7 @@ JenisKelaminSubjek.csv
 requesting_score.ipynb
 dataset/*
 __pycache__/*
+*/__pycache__/
+*.h5
+*.keras
+*.pickle
