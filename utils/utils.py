@@ -1,5 +1,7 @@
 #!/usr/bin/python
+from typing import Any
 import pandas as pd
+import numpy as np
 import os
 import pickle
 
@@ -43,3 +45,17 @@ class ObjectManip:
             return self.obj
         except:
             raise Exception(f"Error occurs while loading {self.name}")
+        
+class Normalize:
+    def __init__(self, arr):
+        self.arr = arr
+    
+    def __call__(self, axis=0):
+        assert axis == 0 or 1, "Only 0 and 1 accepted for the axis"
+        if axis == 1:
+            return (self.arr - np.min(self.arr)) / (np.max(self.arr)-np.min(self.arr))
+        else:
+            x = np.zeros(self.arr.shape)
+            for i in range(self.arr.shape[1]):
+                x[:,i] = (self.arr[:,i] - np.min(self.arr[:,i])) / (np.max(self.arr[:,i])-np.min(self.arr[:,i]))
+            return x

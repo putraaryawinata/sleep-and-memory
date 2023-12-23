@@ -30,8 +30,8 @@ shape_in = x.shape[1:]
 shape_out = y.shape[1:]
 ### Set Callbacks
 early_stop = callbacks.EarlyStopping(monitor='loss', patience=100)
-best_ckpt = callbacks.ModelCheckpoint("saved_model/generative_model", monitor='val_loss', save_best_only=True)
-callbacks = [early_stop, best_ckpt]
+# best_ckpt = callbacks.ModelCheckpoint("saved_model/generative_model", monitor='val_loss', save_best_only=True)
+callbacks = [early_stop,]# best_ckpt]
 
 generative_model = GenerativeModel(latent_dim=latent_dim, shape_in=shape_in, shape_out=shape_out)
 ## Compile Model

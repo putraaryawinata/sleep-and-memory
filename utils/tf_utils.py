@@ -4,9 +4,9 @@ from tensorflow.keras import callbacks, metrics
 def R2(y, y_pred):
     residual = tf.reduce_sum(tf.square(tf.subtract(y, y_pred)))
     total = tf.reduce_sum(tf.square(tf.subtract(y, tf.reduce_mean(y))))
-    r2 = tf.subtract(1.0, tf.divide(residual, total))
+    r_2 = tf.subtract(1.0, tf.divide(residual, total))
 
-    return r2
+    return r_2
     
 class AvoidOverfitting(callbacks.Callback):
     def on_epoch_end(self, epoch, logs={}):
