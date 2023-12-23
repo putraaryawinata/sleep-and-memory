@@ -25,3 +25,4 @@ __pycache__/*
 *.h5
 *.keras
 *.pickle
+saved_model/*
