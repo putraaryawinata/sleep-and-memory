@@ -3,7 +3,6 @@ import numpy as np
 import os
 
 import tensorflow as tf
-import tensorflow.keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Model
 
@@ -14,10 +13,12 @@ class GenerativeModel(Model):
         self.shape_in = shape_in
         self.encoder = tf.keras.Sequential([
             layers.Flatten(),
+            layers.Dense(latent_dim * 2, activation='relu'),
             layers.Dense(latent_dim, activation='relu'),
         ])
         self.decoder = tf.keras.Sequential([
-            layers.Dense(tf.math.reduce_prod(shape_out), activation='sigmoid'),
+            layers.Dense(latent_dim * 2, activation='relu'),
+            layers.Dense(tf.math.reduce_prod(shape_out), activation='relu'),
             layers.Reshape(shape_out)
         ])
 
