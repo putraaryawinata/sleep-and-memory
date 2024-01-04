@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras import callbacks
 import tensorflow as tf
 
-from utils.utils import ReadDataset, PartialNumpyArray, ObjectManip
+from utils.utils import ReadDataset, PartialNumpyArray, ObjectManip, Normalize
 from utils.model_generative import GenerativeModel
 from utils.tf_utils import R2
 
@@ -13,6 +13,7 @@ from utils.tf_utils import R2
 ## Load Dataset
 data = ReadDataset("dataset_psqi_memory.csv", dir="./dataset")
 x, y = data()
+x, y = Normalize(x)(axis=0), Normalize(y)(axis=0)
 # print(f"Input data shape: {x.shape}")
 # print(f"Output data shape: {y.shape}")
 

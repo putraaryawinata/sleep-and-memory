@@ -17,7 +17,7 @@ class GenerativeModel(Model):
             layers.Dense(latent_dim, activation='relu'),
         ])
         self.decoder = tf.keras.Sequential([
-            layers.Dense(tf.math.reduce_prod(shape_out), activation='relu'),
+            layers.Dense(tf.math.reduce_prod(shape_out), activation='sigmoid'),
             layers.Reshape(shape_out)
         ])
 
