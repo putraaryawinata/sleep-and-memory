@@ -1,5 +1,5 @@
 dataset/*
-share/
+share/*
 __pycache__/*
 */__pycache__/
 *.h5
