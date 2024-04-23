@@ -1,9 +1,12 @@
 dataset/*
+share/
 __pycache__/*
 */__pycache__/
 *.h5
 *.keras
 *.pickle
+*.png
+*.csv
 saved_model/*
 lib/*
 bin/*
