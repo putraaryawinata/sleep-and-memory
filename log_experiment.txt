@@ -1,0 +1,5 @@
+1. Doing it by use all data will lead to underfitting (consideration coming from low correlation of the psqi to memory - less than 0.5)
+2. Try using outlier!
+3. [2024/4/24 1:46 AM] Outlier have been conducted. It is increasing R2 but not significantly. Other thing is using MAPE is challenging when the y_true is zero
+4. [2024/4/24 1:46 AM] I have solution that removing memory test with zero value (consideration that the subject not fulfilling the prerequisite as a subject) -- Lets discuss it
+5. [2024/4/24 2:02 AM] SVR and Decision Tree have been built
