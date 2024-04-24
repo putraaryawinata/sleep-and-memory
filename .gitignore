@@ -1,5 +1,6 @@
 dataset/*
 share/*
+share/man/man1/ttx.1
 __pycache__/*
 */__pycache__/
 *.h5
